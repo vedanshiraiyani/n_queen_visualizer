@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  background: linear-gradient(135deg, #011627 0%, #1a365d 100%);
+  color: #fdfffc;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  text-align: center;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.header i {
+  color: #ffd700;
+}
+
+/* Main Content */
+.n-queen {
+  position: relative;
+  width: 90%;
+  max-width: 500px;
+  margin: 4rem auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Input Box Styles */
+.inputbox {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.numberbox {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 0.75rem;
+  border: 2px solid #2ec4b6;
+  border-radius: 8px;
+  outline: none;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.numberbox:focus {
+  border-color: #f72585;
+  box-shadow: 0 0 0 3px rgba(247, 37, 133, 0.1);
+}
+
+.inputbox label {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  color: #2ec4b6;
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: white;
+  padding: 0 0.5rem;
+}
+
+.inputbox input:focus ~ label,
+.inputbox input:valid ~ label {
+  transform: translateY(-1.4rem) scale(0.85);
+  color: #f72585;
+}
+
+/* Slider Styles */
+.slider-container {
+  position: relative;
+  padding: 0;
+  margin: 2rem 0;
+  height: 40px;
+}
+
+.speed-label {
+  position: absolute;
+  top: -20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fa7921;
+}
+
+.speed-label.slow {
+  left: 0;
+}
+
+.speed-label.fast {
+  right: 0;
+}
+
+.slider {
+  -webkit-appearance: none;
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  border-radius: 10px;
+  background: #e8eddf;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fa7921;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(250, 121, 33, 0.3);
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #fa7921;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 0 10px rgba(250, 121, 33, 0.3);
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(250, 121, 33, 0.4);
+}
+
+#progress-bar {
+  position: absolute;
+  height: 8px;
+  background: #ffd200;
+  border-radius: 10px;
+  pointer-events: none;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  left: 0;
+  width: 60%;
+}
+
+/* Play Button Styles */
+.play-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem auto 0;
+  padding: 0.75rem 2.5rem;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
+  color: #fdfffc;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
+}
+
+.play-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(247, 37, 133, 0.4);
+}
+
+.play-button:active {
+  transform: translateY(0);
+}
+
+/* Queen Arrangement Display */
+.queen-arrangement {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #247ba0;
+}
+
+/* Board Container */
+#n-queen-board {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+#n-queen-board div {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+/* Chess Board Styles */
+table {
+  border-collapse: collapse;
+  margin: 1rem auto;
+}
+
+td {
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  border: 1px solid #e8eddf;
+  transition: background-color 0.3s ease;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .n-queen {
+      width: 95%;
+      padding: 1.5rem;
+  }
+
+  .header h2 {
+      font-size: 1.5rem;
+  }
+
+  td {
+      width: 35px;
+      height: 35px;
+  }
+
+  .play-button {
+      padding: 0.6rem 2rem;
+  }
+}

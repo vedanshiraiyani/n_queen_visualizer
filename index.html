@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>N-Queen Visualizer</title>
+    <!-- Font Awesome for icons -->
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <h2>
+            N-Queens Visualizer 
+            <i class="fas fa-crown"></i>
+        </h2>
+    </header>
+
+    <!-- Main Control Panel -->
+    <main>
+        <div class="n-queen">
+            <div class="control-panel">
+                <!-- Input Section -->
+                <div class="inputbox">
+                    <input 
+                        type="number" 
+                        class="numberbox" 
+                        id="numberbox" 
+                        min="1" 
+                        max="8" 
+                        required 
+                    />
+                    <label>Enter number of Queens (1-8)</label>
+                </div>
+
+                <!-- Speed Control Section -->
+                <div class="slider-container">
+                    <span class="speed-label slow">SLOW</span>
+                    <input
+                        class="slider"
+                        id="slider"
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="60"
+                        aria-label="Animation speed control"
+                    />
+                    <span class="speed-label fast">FAST</span>
+                    <div id="progress-bar"></div>
+                </div>
+
+                <!-- Play Button -->
+                <button class="play-button" id="play-button">
+                    <i class="fas fa-play"></i>
+                    <span>Visualize</span>
+                </button>
+            </div>
+
+            <!-- Status Display -->
+            <div class="status-panel">
+                <div class="queen-arrangement" id="queen-arrangement">
+                    <i class="fas fa-chess-queen"></i>
+                    <span>Place your queens...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chess Board Container -->
+        <div class="board-container">
+            <div id="n-queen-board" class="solution-boards">
+                <!-- Boards will be dynamically generated here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
